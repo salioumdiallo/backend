@@ -9,7 +9,7 @@ dotenv.config()
 app.use(express.json());
 
 // Connexion à la base données
-mongoose.connect(process.env.DATABASE,{
+mongoose.connect(process.env.DATABASECLOUD,{
 useNewUrlParser: true,
 useUnifiedTopology: true
 })
@@ -28,3 +28,4 @@ app.use('/api/scategories', scategorieRouter);
 app.use('/api/articles', articleRouter);
 app.listen(process.env.PORT, () => {
 console.log(`Server is listening on port ${process.env.PORT}`); });
+module.exports = app;
