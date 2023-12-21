@@ -4,7 +4,7 @@ var router = express.Router();
 const Categorie=require("../models/categorie");
 const categorie = require('../models/categorie');
 
-// afficher la liste des categories.
+//afficher la liste des categories.
 router.get('/', async (req, res, )=> {
     try {
         const cat = await Categorie.find();
@@ -14,7 +14,7 @@ router.get('/', async (req, res, )=> {
         res.status(404).json({ message: error.message });
         }
 });
-// créer un nouvelle catégorie
+//créer un nouvelle catégorie
 router.post('/', async (req, res) => {
     const { nomcategorie, imagecategorie} = req.body;
 const newCategorie = new Categorie({nomcategorie:nomcategorie,
@@ -26,7 +26,7 @@ res.status(200).json(newCategorie );
 res.status(404).json({ message: error.message });
 }
 });
-// chercher une catégorie
+//chercher une catégorie
 router.get('/:categorieId',async(req, res)=>{
     try {
         const cat = await Categorie.findById(req.params.categorieId);
@@ -36,7 +36,7 @@ router.get('/:categorieId',async(req, res)=>{
             res.status(404).json({ message: error.message });
 }
 });
-// modifier une catégorie
+//modifier une catégorie
 router.put('/:categorieId', async (req, res)=> {
     try {
         const cat = await categorie.findByIdAndUpdate(
@@ -50,7 +50,7 @@ router.put('/:categorieId', async (req, res)=> {
             res.status(404).json({message: error.message});
         }
 });
-// Supprimer une catégorie
+//Supprimer une catégorie
 router.delete('/:categorieId', async (req, res)=> {
     const id = req.params.categorieId;
 await Categorie.findByIdAndDelete(id);
