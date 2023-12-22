@@ -4,7 +4,9 @@ const dotenv =require('dotenv');
 const categorieRouter =require("./routes/categorie.route")
 const scategorieRouter =require("./routes/scategorie.route")
 const articleRouter =require("./routes/article.route")
+const cors=require('cors')
 const app = express();
+app.use(cors())
 dotenv.config()
 app.use(express.json());
 
